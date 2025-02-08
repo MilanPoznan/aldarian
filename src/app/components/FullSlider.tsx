@@ -178,7 +178,13 @@ function resolveOptions(
  * Global (shared) Raf instance to replicate the old JS
  * -----------------------------------------------------
  */
-const globalRaf = new Raf();
+
+let globalRaf: Raf | null = null;
+
+if (typeof window !== "undefined") {
+  globalRaf = new Raf();
+}
+
 
 /**
  * The main React component
@@ -187,14 +193,16 @@ const FullSlider: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // On mount, run the "setup" logic
+    if (!globalRaf) return;
+
     setup();
 
-    // Cleanup on unmount (stop RAF, remove listeners, etc. if needed)
     return () => {
-      globalRaf.stop();
+      globalRaf?.stop();
     };
   }, []);
+
+
 
   /**
    * Sets up the loading progress, then calls `init` when everything is ready
