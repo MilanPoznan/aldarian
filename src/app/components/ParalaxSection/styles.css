@@ -6,6 +6,13 @@
   /* Full viewport height */
 }
 
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .parallax-container {
+    margin-top: 160px;
+  }
+}
+
 /* Background layer with the image */
 .parallax-background {
   position: absolute;
@@ -20,6 +27,8 @@
   will-change: transform;
   z-index: 10;
 }
+
+
 
 /* Content layer for the title */
 .parallax-content {

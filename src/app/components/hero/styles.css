@@ -398,7 +398,7 @@ video {
 
 .banner-links {
   position: absolute;
-  top: 30%;
+  top: 36%;
   right: 1.5rem;
   display: grid;
   justify-items: center;
@@ -417,7 +417,13 @@ video {
 }
 
 .banner-section {
-  margin-bottom: 140px;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 1280px) {
+  .banner-section {
+    margin-bottom: 180px;
+  }
 }
 
 @media only screen and (min-width: 64rem) {
