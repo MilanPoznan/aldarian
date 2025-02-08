@@ -1,0 +1,61 @@
+/* Optionally hide the component by default (GSAP will override) */
+.page-wrapper {
+  opacity: 0;
+  margin-top: 140px;
+}
+
+/* Styles for both content and footer */
+.curtain-content {
+  min-height: 50vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Content area styles */
+.curtain-content-image {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  padding: 40px;
+}
+
+.curtain-content {
+  background: #2f3841;
+  margin-bottom: 30vh;
+  /* same value as footer height and position */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fixed footer styles */
+.curtain-footer {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  top: 70vh;
+  height: 40vh;
+  background: #333;
+  color: #fff;
+  opacity: 0.8;
+}
+
+
+.footer-social {
+  font-size: 48px;
+  color: #fff;
+  transition: 0.3s;
+  transition: transform 0.3s;
+  margin: 40px;
+}
+
+.footer-social:hover {
+  transform: scale(1.4);
+
+}

@@ -1,0 +1,196 @@
+/* .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 40px 26px 40px;
+  background-color: var(--primary);
+  z-index: -1;
+} */
+footer {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  background: #333;
+  color: #fff;
+  margin-top: 40px;
+
+  h1 {
+    font-family: "Cutive Mono", monospace;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+}
+
+.footer__logo {
+  display: none;
+}
+
+.footer__email {
+  margin-top: 50px;
+  width: fit-content;
+}
+
+.footer__back {
+  position: absolute;
+  top: 40px;
+  right: 26px;
+  font-family: var(--decima);
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--primary-light);
+  opacity: 0.5;
+  transform: rotate(-90deg);
+  transform-origin: 73px;
+  cursor: pointer;
+}
+
+.footer__copyright {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.footer__copyright-text p {
+  font: 12px var(--decima);
+  color: var(--primary-light);
+  line-height: 1.33;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer__socials-wrapper {
+  align-self: flex-end;
+}
+
+.footer__socials-links {
+  margin-right: 26px;
+  line-height: 0;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.footer__socials-links:last-of-type {
+  margin-right: 0;
+}
+
+.footer__socials-links svg g g {
+  fill: var(--primary-light);
+}
+
+.footer__socials-links:hover {
+  opacity: 1;
+}
+
+/* The following selector (.footer-wrapper) comes from the SCSS “&-wrapper”
+   defined directly on .footer in your mixins */
+.footer-wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  /* No base styles defined; these appear only in the media queries */
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .footer {
+    padding: 60px 50px 40px;
+  }
+
+  .footer-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer__back {
+    top: 60px;
+    right: 50px;
+  }
+
+  .footer__copyright {
+    margin-top: 87px;
+  }
+}
+
+/* Desktop-lowres breakpoint */
+@media (min-width: 1024px) {
+  .footer {
+    padding: 60px 40px 40px;
+  }
+
+  .footer__logo {
+    display: block;
+    position: absolute;
+  }
+
+  .footer-wrapper {
+    margin-left: 290px;
+  }
+
+  .footer__back {
+    right: 40px;
+  }
+
+  .footer__copyright {
+    margin-top: 125px;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1280px) {
+  .footer {
+    padding: 80px 80px 60px;
+  }
+
+  .footer-wrapper {
+    margin-left: 350px;
+  }
+
+  .footer__email {
+    margin-left: 80px;
+  }
+
+  .footer__back {
+    top: 80px;
+    right: 80px;
+  }
+
+  .footer__copyright {
+    margin-top: 145px;
+  }
+}
+
+/* Desktop-lg breakpoint */
+@media (min-width: 1440px) {
+  .footer__email {
+    margin-left: 130px;
+  }
+
+  .footer-wrapper {
+    margin-left: 400px;
+  }
+}
+
+.footer-socials {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+}
+
+.footer-social {
+  font-size: 48px;
+  color: #fff;
+  transition: 0.3s;
+  transition: transform 0.3s;
+  margin: 40px;
+}
+
+.footer-social:hover {
+  transform: scale(1.4);
+
+}

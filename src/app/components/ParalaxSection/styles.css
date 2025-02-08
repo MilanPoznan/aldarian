@@ -1,0 +1,49 @@
+/* Container for the parallax section */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+  /* Full viewport height */
+}
+
+/* Background layer with the image */
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Make it a bit taller than the container so there is room to move */
+  height: 130%;
+  /* background-image: url('/images/background.png'); */
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* Content layer for the title */
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding-top: 10vh;
+  /* Optional: add a background overlay for better text contrast */
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 20;
+
+  h3 {
+    max-width: 60%;
+  }
+}
+
+.parallax-content h1 {
+  max-width: 60%;
+  font-size: 3rem;
+  margin: 2rem;
+}

@@ -1,0 +1,100 @@
+/* Global Setup */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Separator style */
+.sep {
+  border: 0;
+  width: 3em;
+  height: 1px;
+  margin: 1em 0;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Mast Section */
+.mast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  color: #fff;
+  /* background-color: #111; */
+}
+
+/* Ensure header is above any overlay */
+.mast>div {
+  position: relative;
+  z-index: 2;
+  padding: 5%;
+  max-width: 80%;
+}
+
+/* Mast Title */
+.mast__title {
+  font-family: "Cutive Mono", monospace;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* Base style for letters in title and text: they start hidden */
+.mast__title span,
+.mast__text span {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Mast Text styling */
+.mast__text {
+  font-family: "Cutive Mono", monospace;
+  font-size: 1em;
+  margin: 0 0 0.5em;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+/* When the mast has the "animate" class, letters animate */
+.mast.animate .mast__title span,
+.mast.animate .mast__text span {
+  /* animation: letter-glow 0.25s ease both; */
+  animation: letter-glow 1.5s ease both;
+}
+
+/* Letter Glow Animation */
+@keyframes letter-glow {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  66% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+  }
+
+  77% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0.7;
+    transform: translateY(0);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0);
+  }
+}
+
+/* js-spanize container style */
+.js-spanize {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 36px;
+}

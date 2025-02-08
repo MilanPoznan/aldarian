@@ -1,0 +1,52 @@
+  .image-grid-container {
+    display: grid;
+
+    padding: 1rem 1.25rem 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 20;
+  }
+
+  .grid-item img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* When hovering the entire grid item, boost its stacking order */
+  .grid-item:hover {
+    z-index: 100;
+  }
+
+  @media screen and (min-width: 768px) {
+    .image-grid-container {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1028px;
+      margin: 0 auto;
+      isolation: isolate;
+    }
+
+    .grid-item {
+      position: relative;
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    /* Scale the image on hover */
+    .grid-item img:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  @media screen and (min-width: 1028px) {
+    .image-grid-container {
+      padding: 2rem 0 4rem;
+
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1028px;
+    }
+
+  }
