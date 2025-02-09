@@ -48,7 +48,8 @@
     height: 60vh;
     display: flex;
     align-items: center;
-    margin-bottom: 80px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
   }
 }
 
