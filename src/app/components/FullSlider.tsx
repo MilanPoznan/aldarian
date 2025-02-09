@@ -450,10 +450,10 @@ const FullSlider: React.FC = () => {
               <div className="slide-info__inner">
                 <div className="slide-info--text__wrapper">
                   <div data-title className="slide-info--text">
-                    <span>Aelora </span>
+                    <span style={{ color: "rgb(240 189 255)" }}>Aelora Owlcrest</span>
                   </div>
                   <div data-subtitle className="slide-info--text">
-                    <span>Owlcrest</span>
+                    {/* <span style={{ color: "rgb(240 189 255)" }}>Owlcrest</span> */}
                   </div>
                   {/* <div data-description className="slide-info--text">
                     <span>The mountains are calling</span>
