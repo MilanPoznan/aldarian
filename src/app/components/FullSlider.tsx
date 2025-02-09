@@ -455,9 +455,9 @@ const FullSlider: React.FC = () => {
                   <div data-subtitle className="slide-info--text">
                     <span>Owlcrest</span>
                   </div>
-                  <div data-description className="slide-info--text">
+                  {/* <div data-description className="slide-info--text">
                     <span>The mountains are calling</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -472,9 +472,9 @@ const FullSlider: React.FC = () => {
                   <div data-subtitle className="slide-info--text">
                     {/* <span>Peru</span> */}
                   </div>
-                  <div data-description className="slide-info--text">
+                  {/* <div data-description className="slide-info--text">
                     <span>Adventure is never far away</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -486,12 +486,12 @@ const FullSlider: React.FC = () => {
                   <div data-title className="slide-info--text">
                     <span>Baldric Sunforge</span>
                   </div>
-                  <div data-subtitle className="slide-info--text">
+                  {/* <div data-subtitle className="slide-info--text">
                     <span>France</span>
-                  </div>
-                  <div data-description className="slide-info--text">
+                  </div> */}
+                  {/* <div data-description className="slide-info--text">
                     <span>Let your dreams come true</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
