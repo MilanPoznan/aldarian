@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Aldarian NFT",
   description: "Aldarian NFT Collection",
   openGraph: {
@@ -23,7 +23,6 @@ export const metadata = {
         url: "/images/aldarianlogo.png",
         width: 1200,
         height: 630,
-        alt: "Aldarian NFT Banner",
       },
     ],
   },
