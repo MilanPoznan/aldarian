@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/imagesloaded": "^4.1.6",
+    "@vercel/analytics": "^1.4.1",
     "boxicons": "^2.1.4",
     "gsap": "^3.12.7",
     "imagesloaded": "^5.0.0",
