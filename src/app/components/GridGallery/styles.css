@@ -135,3 +135,11 @@
   body.no-scroll {
     overflow: hidden;
   }
+
+  .modal-title {
+    color: #fff;
+  }
+
+  .modal-text {
+    color: #fff;
+  }

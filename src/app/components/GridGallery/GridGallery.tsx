@@ -127,14 +127,13 @@ const Modal = ({ activeIndex, item, totalItems, handleNext, handlePrev, onClose 
           </span>
           <span onClick={handleNext} className={`slider-btn slider-btn--right ${activeIndex === totalItems - 1 ? 'slider-btn--disabled' : ''}`}>
             <i className='bx bx-chevron-right'></i>
-
           </span>
         </div>
         <span className="close" onClick={onClose}>+</span>
-        <h2>{title}</h2>
+        <h2 className="modal-title">{title}</h2>
         <div>
           <img src={images} alt={title} />
-          <p>{description}</p>
+          <p className='modal-text'>{description}</p>
 
         </div>
       </div>
