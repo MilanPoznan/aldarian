@@ -4,7 +4,6 @@ export class CmsClient {
   private client: AxiosInstance;
 
   constructor(baseURL: string) {
-    console.log('baseURL', baseURL)
     this.client = axios.create({
       baseURL,
       headers: {

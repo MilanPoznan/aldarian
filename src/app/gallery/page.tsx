@@ -5,6 +5,21 @@ import Hero from "../components/hero/Hero";
 import { Footer } from "../components/Footer/Footer";
 import { useCmsClient } from "../client/restClient/cmsClient";
 
+
+/**
+ * TODO RASA 
+ * Setovati na render komponente inicijalne podatke u state 
+ * -  Na search dohvatiti podatke sa servera => handleOnSubmit
+ * -- i setovati ih u state  
+ * - Na load more dohvatiti podatke handleLoadMore
+ * -- I setovati ih u state
+ * Sve podatke iz state proslediti komponenti GalleryPageComponent
+ * 
+ * 
+ * Grid Galery - prikazati trenutnu datu
+ * -- Na klik item otvoriti modal ( Pogledati primer u GridGallery.tsx )
+ */
+
 export default function Gallery() {
   const [query, setQuery] = useState('');
 
@@ -16,16 +31,19 @@ export default function Gallery() {
   const handleOnSubmit = async () => {
     console.log('query SUBMIT', query)
     const result = await cmsClient.get(`?search=${query}`);
-    console.log('REST SEARCH RES', result)
   }
 
-  const testClient = async () => {
-    const res = await cmsClient.get(``);
+  const initialQuery = async () => {
+    const res = await cmsClient.get(`?per_page=2`);
     console.log('REST RES', res)
   }
+  const handleLoadMore = async () => {
+    //Load more
+  }
   useEffect(() => {
-    const x = testClient()
+    const x = initialQuery()
   }, [])
+
   return (
     <div className={'main-wrapper '}>
       <Hero />
