@@ -453,11 +453,8 @@ const FullSlider: React.FC = () => {
                     <span style={{ color: "rgb(240 189 255)" }}>Aelora Owlcrest</span>
                   </div>
                   <div data-subtitle className="slide-info--text">
-                    {/* <span style={{ color: "rgb(240 189 255)" }}>Owlcrest</span> */}
                   </div>
-                  {/* <div data-description className="slide-info--text">
-                    <span>The mountains are calling</span>
-                  </div> */}
+
                 </div>
               </div>
             </div>
@@ -470,11 +467,7 @@ const FullSlider: React.FC = () => {
                     <span>Mirmod  Ashborne </span>
                   </div>
                   <div data-subtitle className="slide-info--text">
-                    {/* <span>Peru</span> */}
                   </div>
-                  {/* <div data-description className="slide-info--text">
-                    <span>Adventure is never far away</span>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -486,12 +479,6 @@ const FullSlider: React.FC = () => {
                   <div data-title className="slide-info--text">
                     <span>Baldric Sunforge</span>
                   </div>
-                  {/* <div data-subtitle className="slide-info--text">
-                    <span>France</span>
-                  </div> */}
-                  {/* <div data-description className="slide-info--text">
-                    <span>Let your dreams come true</span>
-                  </div> */}
                 </div>
               </div>
             </div>

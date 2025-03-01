@@ -25,11 +25,9 @@ export default function Home() {
         <Hero />
         <FullSlider />
         <ParallaxSection />
-        {/* <TextComponent /> */}
         <AnimatedText />
         <GridGallery />
         <Footer />
-        {/* <FooterCurtain /> */}
       </div>
     </>
   );
