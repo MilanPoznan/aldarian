@@ -110,7 +110,7 @@ const HeaderBanner: React.FC = () => {
           <div className="menu" id="menu" ref={navbarMenuRef}>
             <div className="menu-inner">
               <div className="menu-item">
-                <a href="#" className="menu-link" onClick={(e) => smoothScrollTo("about", e)}>
+                <a href="/" className="menu-link" onClick={(e) => smoothScrollTo("about", e)}>
                   About us
                 </a>
               </div>

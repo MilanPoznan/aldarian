@@ -157,6 +157,7 @@
 
     &:hover {
       background-color: #0a0a0a;
+      outline: 1px solid #fff;
     }
   }
 
