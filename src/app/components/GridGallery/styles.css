@@ -25,7 +25,6 @@
     .image-grid-container {
       grid-template-columns: repeat(3, 1fr);
       max-width: 1028px;
-      margin: 0 auto;
       isolation: isolate;
     }
 
@@ -142,4 +141,68 @@
 
   .modal-text {
     color: #fff;
+  }
+
+  .load-more {
+    display: flex;
+    justify-content: center;
+    background-color: #333333;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: #0a0a0a;
+    }
+  }
+
+  .load-more:disabled {
+
+    &:hover {
+      background-color: #333333;
+      cursor: not-allowed;
+    }
+  }
+
+  .no-results {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .category-check-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+  }
+
+  .categories-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 0 15px rgba(58, 176, 255, 0.2);
+    margin: 1rem 0;
+
+  }
+
+  .checkbox {
+    width: 15px;
+    height: 15px;
+  }
+
+  .gird-filter-container {
+    display: flex;
+    width: 75rem;
+    gap: 200px;
+    margin: 0 auto;
+    padding: 0px 20px;
   }

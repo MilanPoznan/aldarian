@@ -4,7 +4,9 @@ import SearchBar from "../components/elements/search-bar/SearchBar";
 import Hero from "../components/hero/Hero";
 import { Footer } from "../components/Footer/Footer";
 import { useCmsClient } from "../client/restClient/cmsClient";
-
+import GridGallery from "../components/GridGallery/GridGallery";
+import CmsClient from "../providers/restProvider";
+import './styles.css'
 
 /**
  * TODO RASA 
@@ -22,35 +24,62 @@ import { useCmsClient } from "../client/restClient/cmsClient";
 
 export default function Gallery() {
   const [query, setQuery] = useState('');
+  const [data, setData] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const cmsClient = useCmsClient();
+
+  const cmsClientAllCategories = new CmsClient("http://admin.thealdarian.com/wp-json/wp/v2");
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   }
+
   const handleOnSubmit = async () => {
-    console.log('query SUBMIT', query)
-    const result = await cmsClient.get(`?search=${query}`);
+
+    const result = await cmsClient.get(`?search=${query}&_embed`);
+    setData(result);
   }
 
   const initialQuery = async () => {
-    const res = await cmsClient.get(`?per_page=2`);
-    console.log('REST RES', res)
+    const res = await cmsClient.get(`?per_page=2&page=1&_embed`);
+    setData(res);
   }
+
   const handleLoadMore = async () => {
     //Load more
+    const next = (data.length / 2 ) + 1;
+    const res = await cmsClient.get(`?per_page=2&page=${next}&_embed`)
+    setData([...data, ...res])
   }
-  useEffect(() => {
-    const x = initialQuery()
-  }, [])
 
+  const handleCheckBox = async (id: number) => {
+    const res = await cmsClient.get(`?categories=${id}&_embed`)
+    setData(res);
+  }
+
+  useEffect(() => {
+    const allCategories = async () => {
+      const res = await cmsClientAllCategories.get(`categories`);
+      setCategories(res);
+    }
+
+    initialQuery();
+    allCategories();
+
+  }, [])
+ 
   return (
-    <div className={'main-wrapper '}>
+    <div className='main-wrapper gallery-page'>
       <Hero />
       <SearchBar value={query} onChange={handleOnChange} onSubmit={handleOnSubmit} />
-
+      <GridGallery 
+        nfts={data} 
+        handleLoadMore={handleLoadMore} 
+        categories={categories} 
+        handleCheckBox={handleCheckBox}
+        initialQuery={initialQuery}/>
       <Footer />
-
     </div>
   )
 }

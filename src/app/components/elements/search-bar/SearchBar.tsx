@@ -1,6 +1,6 @@
 import { useCmsClient } from '@/app/client/restClient/cmsClient';
 import React, { ChangeEvent, useState } from 'react';
-
+import './styles.css'
 interface SearchBarProps {
   value: string;
   placeholder?: string;
@@ -26,7 +26,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, placeholder = 'Search...',
         onKeyDown={handleKeyPress}
         placeholder={placeholder}
       />
-      <button onClick={onSubmit}>Search</button>
+      <button onClick={onSubmit} className='search-button'>Search</button>
     </div>
   );
 };
