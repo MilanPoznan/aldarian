@@ -4,7 +4,7 @@ import SearchBar from "../components/elements/search-bar/SearchBar";
 import Hero from "../components/hero/Hero";
 import { Footer } from "../components/Footer/Footer";
 import { useCmsClient } from "../client/restClient/cmsClient";
-import GridGallery from "../components/GridGallery/GridGallery";
+import GridGallery, { SingleCategory } from "../components/GridGallery/GridGallery";
 import CmsClient from "../providers/restProvider";
 import './styles.css'
 
@@ -26,10 +26,21 @@ export default function Gallery() {
   const [query, setQuery] = useState('');
   const [data, setData] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [activeCat, setActiveCat] = useState([]);
 
   const cmsClient = useCmsClient();
 
-  const cmsClientAllCategories = new CmsClient("http://admin.thealdarian.com/wp-json/wp/v2");
+  const handleCategoryChanges = (currentCategory: SingleCategory) => {
+    if (activeCat.includes(currentCategory.id)) {
+      setActiveCat(activeCat.filter((id) => id !== currentCategory.id))
+    } else {
+      setActiveCat([...activeCat, currentCategory.id])
+    }
+  }
+  useEffect(() => {
+    handleOnSubmit()
+  }
+    , [activeCat])
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -37,48 +48,56 @@ export default function Gallery() {
 
   const handleOnSubmit = async () => {
 
-    const result = await cmsClient.get(`?search=${query}&_embed`);
+    const activeQuery = query && `&search=${query}`;
+    const activeCategories = activeCat.length && `categories=${activeCat.join(',')}`;
+    const queryString = [
+      activeQuery,
+      activeCategories,
+      '_embed',
+    ].filter(Boolean).join('&');
+
+    const result = await cmsClient.get(`aldarian_nft/?${queryString}`);
     setData(result);
   }
 
-  const initialQuery = async () => {
-    const res = await cmsClient.get(`?per_page=2&page=1&_embed`);
-    setData(res);
-  }
 
   const handleLoadMore = async () => {
     //Load more
-    const next = (data.length / 2 ) + 1;
-    const res = await cmsClient.get(`?per_page=2&page=${next}&_embed`)
+    const next = (data.length / 2) + 1;
+    const res = await cmsClient.get(`aldarian_nft/?per_page=2&page=${next}&_embed`)
     setData([...data, ...res])
   }
 
-  const handleCheckBox = async (id: number) => {
-    const res = await cmsClient.get(`?categories=${id}&_embed`)
-    setData(res);
+  const fetchData = async () => {
+    const catPromise = cmsClient.get(`categories`)
+    const itemsPrimise = cmsClient.get(`aldarian_nft/?per_page=2&page=1&_embed`);
+    try {
+      const [cat, data] = await Promise.all([catPromise, itemsPrimise])
+      console.log('data', data)
+      setCategories(cat);
+      setData(data)
+    } catch (error) {
+      console.log("Init data fetching Error", error)
+    }
   }
 
   useEffect(() => {
-    const allCategories = async () => {
-      const res = await cmsClientAllCategories.get(`categories`);
-      setCategories(res);
-    }
+    fetchData();
 
-    initialQuery();
-    allCategories();
+  }, []);
 
-  }, [])
- 
   return (
     <div className='main-wrapper gallery-page'>
       <Hero />
       <SearchBar value={query} onChange={handleOnChange} onSubmit={handleOnSubmit} />
-      <GridGallery 
-        nfts={data} 
-        handleLoadMore={handleLoadMore} 
-        categories={categories} 
-        handleCheckBox={handleCheckBox}
-        initialQuery={initialQuery}/>
+      {data && <GridGallery
+        activeCat={activeCat}
+        nfts={data}
+        handleLoadMore={handleLoadMore}
+        categories={categories}
+        handleCheckBox={handleCategoryChanges}
+      />
+      }
       <Footer />
     </div>
   )
