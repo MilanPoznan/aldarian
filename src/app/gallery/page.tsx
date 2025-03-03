@@ -5,22 +5,8 @@ import Hero from "../components/hero/Hero";
 import { Footer } from "../components/Footer/Footer";
 import { useCmsClient } from "../client/restClient/cmsClient";
 import GridGallery, { SingleCategory } from "../components/GridGallery/GridGallery";
-import CmsClient from "../providers/restProvider";
 import './styles.css'
 
-/**
- * TODO RASA 
- * Setovati na render komponente inicijalne podatke u state 
- * -  Na search dohvatiti podatke sa servera => handleOnSubmit
- * -- i setovati ih u state  
- * - Na load more dohvatiti podatke handleLoadMore
- * -- I setovati ih u state
- * Sve podatke iz state proslediti komponenti GalleryPageComponent
- * 
- * 
- * Grid Galery - prikazati trenutnu datu
- * -- Na klik item otvoriti modal ( Pogledati primer u GridGallery.tsx )
- */
 
 export default function Gallery() {
   const [query, setQuery] = useState('');
@@ -62,7 +48,6 @@ export default function Gallery() {
 
 
   const handleLoadMore = async () => {
-    //Load more
     const next = (data.length / 2) + 1;
     const res = await cmsClient.get(`aldarian_nft/?per_page=2&page=${next}&_embed`)
     setData([...data, ...res])
