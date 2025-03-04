@@ -99,7 +99,7 @@ const HeaderBanner: React.FC = () => {
       {/* Header Section */}
       <header className="header" id="header" ref={headerMenuRef}>
         <nav className="navbar container">
-          <a href="#" className="brand" onClick={scrollToTop}>
+          <a href="/" className="brand" onClick={scrollToTop}>
             <img src="/logo.png" alt="Aldarians" />
           </a>
           <div className="burger" id="burger" ref={burgerMenuRef}>
@@ -115,8 +115,8 @@ const HeaderBanner: React.FC = () => {
                 </a>
               </div>
               <div className="menu-item">
-                <a href="#" className="menu-link" onClick={(e) => smoothScrollTo("gallery", e)}>
-                  Collection
+                <a href="/gallery" className="menu-link">
+                 Gallery
                 </a>
               </div>
               {/* <div className="menu-item">

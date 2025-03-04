@@ -18,7 +18,7 @@ export default function Home() {
   const handleFooterHeight = (height: number) => {
     setHeightValue(height);
   };
-  console.log('heightValue', heightValue);
+
   return (
     <>
       <div className={'main-wrapper'}>
@@ -26,7 +26,7 @@ export default function Home() {
         <FullSlider />
         <ParallaxSection />
         <AnimatedText />
-        <GridGallery />
+
         <Footer />
       </div>
     </>
