@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import './styles.css'
-
-const HeaderBanner: React.FC = () => {
+type HeaderBannerProps = {
+  showHero: boolean
+}
+const HeaderBanner = ({ showHero }: HeaderBannerProps) => {
   // We'll use refs instead of document.getElementById for best React practice
   const navbarMenuRef = useRef<HTMLDivElement | null>(null);
   const burgerMenuRef = useRef<HTMLDivElement | null>(null);
@@ -116,7 +118,7 @@ const HeaderBanner: React.FC = () => {
               </div>
               <div className="menu-item">
                 <a href="/gallery" className="menu-link">
-                 Gallery
+                  Gallery
                 </a>
               </div>
               {/* <div className="menu-item">
@@ -138,7 +140,7 @@ const HeaderBanner: React.FC = () => {
       </header>
 
       {/* Main Section */}
-      <section className="section banner banner-section">
+      {showHero && <section className="section banner banner-section">
         <div className="container banner-column">
           {/* <img src="https://i.ibb.co/vB5LTFG/Headphone.png" className="banner-image" /> */}
           <Image
@@ -181,6 +183,7 @@ const HeaderBanner: React.FC = () => {
           </div>
         </div>
       </section>
+      }
     </>
   );
 };

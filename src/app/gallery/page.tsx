@@ -4,8 +4,9 @@ import SearchBar from "../components/elements/search-bar/SearchBar";
 import Hero from "../components/hero/Hero";
 import { Footer } from "../components/Footer/Footer";
 import { useCmsClient } from "../client/restClient/cmsClient";
-import GridGallery, { SingleCategory } from "../components/GridGallery/GridGallery";
+import GalleryPageComponent from "../components/GalleryPageComponent/GalleryPageComponent";
 import './styles.css'
+import { SingleNFTCategory } from "../client/types/types";
 
 
 export default function Gallery() {
@@ -16,7 +17,7 @@ export default function Gallery() {
 
   const cmsClient = useCmsClient();
 
-  const handleCategoryChanges = (currentCategory: SingleCategory) => {
+  const handleCategoryChanges = (currentCategory: SingleNFTCategory) => {
     if (activeCat.includes(currentCategory.id)) {
       setActiveCat(activeCat.filter((id) => id !== currentCategory.id))
     } else {
@@ -73,9 +74,9 @@ export default function Gallery() {
 
   return (
     <div className='main-wrapper gallery-page'>
-      <Hero />
+      <Hero showHero={false} />
       <SearchBar value={query} onChange={handleOnChange} onSubmit={handleOnSubmit} />
-      {data && <GridGallery
+      {data && <GalleryPageComponent
         activeCat={activeCat}
         nfts={data}
         handleLoadMore={handleLoadMore}
